@@ -28,7 +28,7 @@ const ProductForm = () => {
 
             <input type="text" name='title' placeholder='Title of the task' className="shadow border rounded py-2 px-3 text-gray-600 mb-3" onChange={handleChange}/>
             <textarea name="description" rows="2" placeholder='Description of the task' className="shadow border rounded py-2 px-3 text-gray-600" onChange={handleChange}></textarea>
-            <button className="bg-blue-500 hover:bg-blue-600 rounded py-2 px-4 focus:outline-none focus:shadow-outline font-bold text-white mt-2">Send task!</button>
+            <button className="bg-blue-500 hover:bg-blue-600 rounded py-2 px-4 focus:outline-none focus:shadow-outline font-bold text-white mt-2">Save task!</button>
 
         </form>
     </div>
