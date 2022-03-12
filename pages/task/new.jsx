@@ -1,11 +1,13 @@
 import { Layout } from '../../components/Layout'
-import ProductForm from '../../components/ProductForm'
+import TaskForm from '../../components/TaskForm'
 
 const NewTaskPage = () => {
   return (
     <div>
         <Layout>
-            <ProductForm />
+          <div>
+            <TaskForm />
+          </div>
         </Layout>
     </div>
   )

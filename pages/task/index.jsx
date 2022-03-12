@@ -10,9 +10,10 @@ const Handler = ({ tasks }) => {
         tasks.map(task => (
           <Link key={task.id} href={`/task/id/${task.id}`}>
             <a>
-              <div>
+              <div className="border border-gray-200 shadow-md p-6 m-5">
                 <h1>{task.title}</h1>
-                <p>{task.description}</p>
+                <hr />
+                <p className='mt-3'>{task.description}</p>
               </div>
             </a>
           </Link>

@@ -23,7 +23,7 @@ const ProductForm = () => {
     }
 
   return (
-    <div className='bg-gray-200 w-full max-w-xs'>
+    <div className='bg-gray-200 w-full max-w-xs container mx-auto my-20'>
         <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
             <input type="text" name='title' placeholder='Title of the task' className="shadow border rounded py-2 px-3 text-gray-600 mb-3" onChange={handleChange}/>

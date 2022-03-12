@@ -1,4 +1,5 @@
 import Head from "next/head"
+import { Navbar } from "./Navbar"
 
 export const Layout = ({ children, title }) => {
   return (
@@ -13,7 +14,10 @@ export const Layout = ({ children, title }) => {
             <meta property="og:description" content={`Esta es la página sobre la tarea ${ title }`} />
             {/* <meta property="og:image" content={`${origin}/banner.png`} /> */}
         </Head>
-        <div className="container mx-auto hfull">{children}</div>
+        <div className="container mx-auto hfull">
+          <Navbar />
+          {children}
+        </div>
     </div>
   )
 }
