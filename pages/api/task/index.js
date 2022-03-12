@@ -4,21 +4,22 @@ export default async function handler(req, res){
 
     switch(req.method){
         case 'GET':
-            return await getTask(req, res);
+            return await getTasks(req, res);
         case 'POST': 
             return await createTask(req, res);
     }
 
 }
 
-const getTask = async (req, res) => {
-    console.log('getting task')
-    const [ result ] = await pool.query('SELECT FROM * task');
+const getTasks = async (req, res) => {
+    const [ result ] = await pool.query('SELECT * FROM task');
+    console.log(result)
     return res.status(200).json(result);
 }
 
 const createTask = async (req, res) => {
-    console.log('posting a task')
+    const { title, description } = req.body;
+
     const [ result ] = await pool.query('INSERT INTO task SET ?', {
         title,
         description,
