@@ -18,7 +18,7 @@ const ViewTaskPage = ({ task }) => {
             <div className='flex justify-between'>
                 <h1 className='text-3xl m-10'>This is your Task!</h1>
                 <Link key={task.id} href="/task/" >
-                <a className="m-10 text-2xl underline hover:no-underline">🔙 Volver</a></Link>
+                <a className="m-10 text-sm underline underline-offset-4 decoration-sky-500 hover:decoration-sky-600">🔙 Volver</a></Link>
             </div>
             <div className='border border-gray-200 shadow-md p-6 m-5 bg-white'>
                 <div className='flex justify-between mb-5'>
@@ -28,7 +28,7 @@ const ViewTaskPage = ({ task }) => {
                 <div>
                     <h1>{task.title}</h1>
                     <hr />
-                    <p className='mt-2'>{task.description}</p>
+                    <p className='mt-2 text-neutral-600 text-sm'>{task.description}</p>
                 </div>     
             </div>
             <br />

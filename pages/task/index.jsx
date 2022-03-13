@@ -6,16 +6,21 @@ const Handler = ({ tasks }) => {
   return (
     <Layout>
       {tasks.map((task) => (
-        <div className="flex justify-between border border-gray-200 shadow-md p-6 m-5 bg-white">
+        <div className=" border border-gray-200 shadow-md p-6 m-5 bg-white">
+          <div className="flex justify-between">
+            <div></div>
+            <Link key={task.id} href={`/task/id/${task.id}`}>
+              <a className="underline underline-offset-4 decoration-sky-500 hover:decoration-sky-600 mb-3 text-sm">🔜 Go</a>
+            </Link>
+          </div>
+          
           <div>
-            <h1>{task.title}</h1>
+            <h1 className="text-black">{task.title}</h1>
             <hr />
-            <p className="mt-3">{task.description}</p>
+            <p className="mt-3 text-neutral-600 text-sm">{task.description}</p>
           </div>
 
-          <Link key={task.id} href={`/task/id/${task.id}`}>
-            <a className="underline">🔜 Go</a>
-          </Link>
+          
         </div>
       ))}
     </Layout>

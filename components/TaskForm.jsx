@@ -53,7 +53,7 @@ const ProductForm = () => {
 
         <div className='bg-gray-100 text-sky-500 text-2xl text-center'>
             {
-                router.query.id ? "Update your task..." : "Create you task..."
+                router.query.id ? "Update this task..." : "Create a task..."
             }
             <br />
             <br />
@@ -62,7 +62,7 @@ const ProductForm = () => {
 
         <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
-            <input type="text" id='title' name='title' placeholder='Title of the task' className="shadow border rounded py-2 px-3 text-gray-600 mb-3 w-full" onChange={handleChange} value={task.title}/>
+            <input type="text" id='title' name='title' placeholder='Title of the task' className="shadow border rounded py-2 px-3 text-gray-600 mb-3 w-full " onChange={handleChange} value={task.title}/>
             <textarea name="description" id='description' rows="2" placeholder='Description of the task' className="shadow border rounded py-2 px-3 text-gray-600 w-full" onChange={handleChange} value={task.description}></textarea>
 
             <div className='flex justify-between'>
@@ -72,7 +72,7 @@ const ProductForm = () => {
                     }
                 </button>
                 {
-                    router.query.id ? <Link key={task.id} href={`/task/id/${task.id}`}><a className='text-red-500 mt-4'>Cancel</a></Link> : null
+                    router.query.id ? <Link key={task.id} href={`/task/id/${task.id}`}><a className='text-red-500 mt-4 hover:underline'>Cancel</a></Link> : null
                 }
             </div>
             
