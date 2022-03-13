@@ -11,13 +11,13 @@ export const Navbar = () => {
                 </a>
             </Link>
             <Link href="/task/new">
-                <a  className="p-3 hover:underline">
+                <a  className="p-2 hover:underline">
                 New task 📝
                 </a>
             </Link>
             <Link href="/task/">
-                <a  className="p-3 hover:underline">
-                    All task 📋
+                <a  className="p-2 hover:underline">
+                    All tasks 📋
                 </a>
             </Link>
         </nav>

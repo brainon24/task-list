@@ -1,4 +1,5 @@
 import Head from "next/head"
+import { Footer } from "./Footer"
 import { Navbar } from "./Navbar"
 
 export const Layout = ({ children, title }) => {
@@ -17,6 +18,7 @@ export const Layout = ({ children, title }) => {
         <div className="container mx-auto hfull">
           <Navbar />
           {children}
+          <Footer />
         </div>
     </div>
   )
