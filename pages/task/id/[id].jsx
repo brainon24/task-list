@@ -20,14 +20,16 @@ const ViewTaskPage = ({ task }) => {
                 <Link key={task.id} href="/task/" >
                 <a className="m-10 text-2xl underline hover:no-underline">🔙 Volver</a></Link>
             </div>
-            <div className='flex justify-between border border-gray-200 shadow-md p-6 m-5 bg-white'>
+            <div className='border border-gray-200 shadow-md p-6 m-5 bg-white'>
+                <div className='flex justify-between mb-5'>
+                    <button className='bg-gray-200 hover:bg-gray-300 px-3 rounded-full' onClick={() => router.push('/task/edit/' + task.id)}>✏️</button>
+                    <button className='bg-red-500 hover:bg-red-600 py-2 px-3 rounded-full' onClick={() => handleDelete(task.id)}>🗑️</button>
+                </div>
                 <div>
-                    <button className='bg-gray-200 hover:bg-gray-300 px-1 rounded-full'>✏️</button>
                     <h1>{task.title}</h1>
                     <hr />
                     <p className='mt-2'>{task.description}</p>
-                </div>
-                <button className='bg-red-500 hover:bg-red-600 text-white py-2 px-3 rounded' onClick={() => handleDelete(task.id)}>🗑️</button>
+                </div>     
             </div>
             <br />
             <br />
