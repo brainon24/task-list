@@ -19,8 +19,6 @@ const Handler = ({ tasks }) => {
             <hr />
             <p className="mt-3 text-neutral-600 text-sm">{task.description}</p>
           </div>
-
-          
         </div>
       ))}
     </Layout>
