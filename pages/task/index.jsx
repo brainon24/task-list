@@ -2,11 +2,11 @@ import axios from "axios";
 import { Layout } from "../../components/Layout";
 import Link from "next/link";
 
-const Handler = ({ tasks }) => {
+const Handler = ({ tasks }) => { 
   return (
     <Layout>
       {tasks.map((task) => (
-        <div className=" border border-gray-200 shadow-md p-6 m-5 bg-white">
+        <div key={task.id} className=" border border-gray-200 shadow-md p-6 m-5 bg-white">
           <div className="flex justify-between">
             <div></div>
             <Link key={task.id} href={`/task/id/${task.id}`}>
