@@ -40,7 +40,7 @@ const ViewTaskPage = ({ task }) => {
 
 export const getServerSideProps = async (ctx) => {
 
-    const { data: task } = await axios.get('http://localhost:3000/api/task/' + ctx.query.id)
+    const { data: task } = await axios.get('https://task-list-ddh.vercel.app/api/task/' + ctx.query.id)
 
     return {
         props: {
