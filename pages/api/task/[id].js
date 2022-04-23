@@ -29,9 +29,9 @@ export const deleteTask = async (req, res) => {
 
 export const updateTask = async (req, res) => {
     const { id } = req.query;
-    const { title, description } = req.body;
+    const { title, description, responsible, status,  } = req.body;
     try{
-        await pool.query('UPDATE task SET title = ?, description = ? WHERE id = ?', [title, description, id]);
+        await pool.query('UPDATE task SET title = ?, description = ?, responsible = ?, status = ? WHERE id = ?', [title, description, responsible, status, id]);
         res.status(204).json();
     }catch(error){
         console.log('ERROR FROM UPDATE TASK', error)
