@@ -7,6 +7,9 @@ const Handler = ({ tasks }) => {
     <Layout>
       {tasks.map((task) => (
         <div key={task.id} className=" border border-gray-200 shadow-md p-6 m-5 bg-white">
+          <h4>Responsable: {task.responsible}</h4>
+          <p>Estado: {task.status}</p>
+          {/* <p>{task.createdAT}</p> */}
           <div className="flex justify-between">
             <div></div>
             <Link key={task.id} href={`/task/id/${task.id}`}>
@@ -26,7 +29,7 @@ const Handler = ({ tasks }) => {
 };
 
 export const getServerSideProps = async (ctx) => {
-  const { data: tasks } = await axios.get("https://task-list-ddh.vercel.app/api/task");
+  const { data: tasks } = await axios.get("http://localhost:3000/api/task");
 
   return {
     props: {

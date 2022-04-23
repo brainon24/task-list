@@ -6,18 +6,30 @@ import { useState, useEffect } from 'react';
 
 const ProductForm = () => {
 
+    const status = {
+        "pending": "Pendiente",
+        "inprogress": "En progreso",
+        "done": "Terminado"
+    }
+
     const router = useRouter();
 
     const [task, setTask] = useState({
         title: "",
-        description: ""
+        description: "",
+        responsible: "",
+        status: status.pending,
+        createdAt: new Date().now
     });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const title = e.target.title.value;
         const description = e.target.description.value;
-        if(title <= 1 || description <= 1 ){
+        const responsible = e.target.responsible.value;
+        const status = e.target.status.value;
+        const createdAt = new Date().now;
+        if(title <= 1 || description <= 1 || responsible <= 1){
             var message;
             return message = "Don`t input value null...";
         }else{
@@ -64,6 +76,12 @@ const ProductForm = () => {
 
             <input type="text" id='title' name='title' placeholder='Title of the task' className="shadow border rounded py-2 px-3 text-gray-600 mb-3 w-full " onChange={handleChange} value={task.title}/>
             <textarea name="description" id='description' rows="2" placeholder='Description of the task' className="shadow border rounded py-2 px-3 text-gray-600 w-full" onChange={handleChange} value={task.description}></textarea>
+            <input type="text" id='responsible' name='responsible' placeholder='Responsable of the task' className="shadow border rounded py-2 px-3 text-gray-600 my-2 w-full " onChange={handleChange} value={task.responsible}/>
+            <select name="status" id='status' className="shadow border rounded py-2 px-3 text-gray-600 my-2 w-full" onChange={handleChange} value={task.status}>
+                <option value={status.pending}>{status.pending}</option>
+                <option value={status.inprogress}>{status.inprogress}</option>
+                <option value={status.done}>{status.done}</option>
+            </select>
 
             <div className='flex justify-between'>
                 <button className="bg-blue-500 hover:bg-blue-600 rounded py-2 px-4 focus:outline-none focus:shadow-outline font-bold text-white mt-2 shadow">
