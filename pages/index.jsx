@@ -8,7 +8,7 @@ function HomePage() {
     <Layout>
       <div className="flex justify-between bg-sky-500 text-white mt-2 py-5 px-10 text-2xl">
         <p></p>
-        <h1 className="">TO-DO List 📚📖</h1>
+        <h1 className="">brainon24 Tasks! 📚📖</h1>
       </div>
       <main className="px-10">
         <div className="p-5 text-center">
