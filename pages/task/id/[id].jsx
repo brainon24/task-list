@@ -45,6 +45,10 @@ export const getServerSideProps = async (ctx) => {
     return {
         props: {
             task,
+        }, 
+        redirect: {
+            destination: '/task',
+            permanent: false,
         }
     }
 

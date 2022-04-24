@@ -1,6 +1,6 @@
 
 .children {
-    max-width: 60vw;
+    max-width: 50vw;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
@@ -8,7 +8,7 @@
 
 @media screen and (max-width: 900px) {
     .children {
-        max-width: 95vw;
+        max-width: 90vw;
         margin: 0 auto;
     }
     
