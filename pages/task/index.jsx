@@ -36,7 +36,7 @@ const Handler = ({ tasks }) => {
 };
 
 export const getServerSideProps = async (ctx) => {
-  const { data: tasks } = await axios.get("http://localhost:3000/api/task");
+  const { data: tasks } = await axios.get("https://task-brainon24.vercel.app//api/task");
 
   return {
     props: {
