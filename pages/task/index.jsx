@@ -1,15 +1,16 @@
 import axios from "axios";
 import { Layout } from "../../components/Layout";
 import Link from "next/link";
+import { dateFunctions } from '../../utils/';
 
 const Handler = ({ tasks }) => { 
+  
   return (
     <Layout>
       {tasks.map((task) => (
         <div key={task.id} className=" border border-gray-200 shadow-md p-6 m-5 bg-white">
           <h4>Responsable: {task.responsible}</h4>
           <p>Estado: {task.status}</p>
-          {/* <p>{task.createdAT}</p> */}
           <div className="flex justify-between">
             <div></div>
             <Link key={task.id} href={`/task/id/${task.id}`}>
@@ -20,8 +21,11 @@ const Handler = ({ tasks }) => {
           <div>
             <h1 className="text-black">{task.title}</h1>
             <hr />
-            <p className="mt-3 text-neutral-600 text-sm">{task.description}</p>
+            <p className="mt-3 text-neutral-600 text-sm">{task.description.length >= 70 ? task.description.substring(0, 70) + '...' : task.description}</p>
           </div>
+          <br />
+          <p>{dateFunctions.getFortmatDistanceToNow( task.createdAT )}</p>
+          <p>{new Date(task.createdAT).toLocaleDateString()}</p>
         </div>
       ))}
     </Layout>

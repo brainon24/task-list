@@ -9,7 +9,7 @@ CREATE TABLE task (
     description VARCHAR(450) NOT NULL,
     status VARCHAR(20) NOT NULL,
     responsible VARCHAR(20) NOT NULL,
-    createdAT TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    createdAT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 describe task;
