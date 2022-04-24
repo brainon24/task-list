@@ -61,7 +61,7 @@ const ProductForm = () => {
     }, [])
 
   return (
-    <div className='bg-gray-200 w-full max-w-xs container mx-auto my-20'>
+    <div className='bg-gray-200 w-full max-w-xl container mx-auto my-10'>
 
         <div className='bg-gray-100 text-sky-500 text-2xl text-center'>
             {
@@ -69,14 +69,14 @@ const ProductForm = () => {
             }
             <br />
             <br />
-            <br />
+
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-10 pt-6 pb-8 mb-4">
 
             <input type="text" id='title' name='title' placeholder='Title of the task' className="shadow border rounded py-2 px-3 text-gray-600 mb-3 w-full " onChange={handleChange} value={task.title}/>
-            <textarea name="description" id='description' rows="2" placeholder='Description of the task' className="shadow border rounded py-2 px-3 text-gray-600 w-full" onChange={handleChange} value={task.description}></textarea>
-            <input type="text" id='responsible' name='responsible' placeholder='Responsable of the task' className="shadow border rounded py-2 px-3 text-gray-600 my-2 w-full " onChange={handleChange} value={task.responsible}/>
+            <textarea name="description" id='description' rows="2" placeholder='Description of the task' className="shadow border rounded pt-2 py-20 px-3 text-gray-600 w-full" onChange={handleChange} value={task.description}></textarea>
+            <input type="text" id='responsible' name='responsible' placeholder='Responsible of the task' className="shadow border rounded py-2 px-3 text-gray-600 my-2 w-full " onChange={handleChange} value={task.responsible}/>
             <select name="status" id='status' className="shadow border rounded py-2 px-3 text-gray-600 my-2 w-full" onChange={handleChange} value={task.status}>
                 <option value={status.pending}>{status.pending}</option>
                 <option value={status.inprogress}>{status.inprogress}</option>

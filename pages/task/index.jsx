@@ -9,23 +9,26 @@ const Handler = ({ tasks }) => {
     <Layout>
       {tasks.map((task) => (
         <div key={task.id} className=" border border-gray-200 shadow-md p-6 m-5 bg-white">
-          <h4>Responsable: {task.responsible}</h4>
-          <p>Estado: {task.status}</p>
-          <div className="flex justify-between">
-            <div></div>
+          
+          <div className="flex justify-between mb-3">
+            <div>
+              <h4 className="text-zinc-900">Responsible: <span className="font-bold"> {task.responsible}</span>.</h4>
+              <p className="text-neutral-500 text-sm">{dateFunctions.getFortmatDistanceToNow( task.createdAT )}</p>
+            </div>
             <Link key={task.id} href={`/task/id/${task.id}`}>
               <a className="underline underline-offset-4 decoration-sky-500 hover:decoration-sky-600 mb-3 text-sm">🔜 Go</a>
             </Link>
           </div>
-          
           <div>
-            <h1 className="text-black">{task.title}</h1>
+            <h1 className="text-black text-xl">{task.title}</h1>
             <hr />
-            <p className="mt-3 text-neutral-600 text-sm">{task.description.length >= 70 ? task.description.substring(0, 70) + '...' : task.description}</p>
+            <p className="mt-3 text-neutral-900 text-x">{task.description.length >= 90 ? task.description.substring(0, 90) + '...' : task.description}</p>
           </div>
-          <br />
-          <p>{dateFunctions.getFortmatDistanceToNow( task.createdAT )}</p>
-          <p>{new Date(task.createdAT).toLocaleDateString()}</p>
+          
+          <div className="flex justify-between mt-5">
+            <p>State: <span className="font-bold">{task.status}</span>.</p>
+            <p>{new Date(task.createdAT).toLocaleDateString()}</p>
+          </div>
         </div>
       ))}
     </Layout>

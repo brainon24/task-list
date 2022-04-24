@@ -29,7 +29,7 @@ export const Layout = ({ children, title }) => {
         <Footer /> */}
 
       <main className=" bg-slate-100 w-full h-full flex flex-col ">
-        <div className="  flex flex-col justify-center my-auto w-full h-full overflow-y-auto">
+        <div className="flex flex-col justify-center my-auto w-full h-full overflow-y-auto">
           <div className="w-full h-full">
             <Navbar />
             <div className={ style.children }>
