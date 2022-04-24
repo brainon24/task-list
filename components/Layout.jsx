@@ -4,7 +4,7 @@ import { Navbar } from "./Navbar"
 
 export const Layout = ({ children, title }) => {
   return (
-    <div className='bg-gray-100 p-10 sahdow-md rounded h-screen'>
+    <div className='bg-gray-100 pt-7 sahdow-md rounded h-screen'>
         <Head>
             <title>{title || "Task List"}</title>
             <meta name="author" content="David Diaz H"/>
@@ -15,11 +15,11 @@ export const Layout = ({ children, title }) => {
             <meta property="og:description" content={`Esta es la página sobre la tarea ${ title }`} />
             {/* <meta property="og:image" content={`${origin}/banner.png`} /> */}
         </Head>
-        <div className="container mx-auto hfull">
+        <div className="container mx-auto h-full relative overflow-y-auto">
           <Navbar />
           {children}
-          <Footer />
         </div>
+          <Footer />
     </div>
   )
 }
