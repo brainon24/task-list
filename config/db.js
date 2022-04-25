@@ -1,12 +1,14 @@
 import { createPool } from 'mysql2/promise';
 
 const pool = createPool({
-    uri: 'mysql://uvoieb2qnwegknlr:mmedQi1Of3RTM1q63YQZ@bqkorgv1uheeffz3u40h-mysql.services.clever-cloud.com:3306/bqkorgv1uheeffz3u40h',
-    host: 'bqkorgv1uheeffz3u40h-mysql.services.clever-cloud.com',
+    //cli: mysql -h bzfuqvkhxyqifchtoo8u-mysql.services.clever-cloud.com -P 3306 -u uerptwfgyhsis2xy -p bzfuqvkhxyqifchtoo8u
+
+    uri: 'mysql://uerptwfgyhsis2xy:i2RnOJ84DuA7rTaqJh0I@bzfuqvkhxyqifchtoo8u-mysql.services.clever-cloud.com:3306/bzfuqvkhxyqifchtoo8u',
+    host: 'bzfuqvkhxyqifchtoo8u-mysql.services.clever-cloud.com',
     port: '3306',
-    user: 'uvoieb2qnwegknlr',
-    password: 'mmedQi1Of3RTM1q63YQZ',
-    database: 'bqkorgv1uheeffz3u40h',
+    user: 'uerptwfgyhsis2xy',
+    password: 'i2RnOJ84DuA7rTaqJh0I',
+    database: 'bzfuqvkhxyqifchtoo8u',
 });
 
 // const pool = createPool({

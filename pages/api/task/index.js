@@ -18,14 +18,15 @@ const getTasks = async (req, res) => {
 }
 
 const createTask = async (req, res) => {
-    const { title, description, responsible, status  } = req.body;
+    const { title, description, responsible, status, client  } = req.body;
 
     const [ result ] = await pool.query('INSERT INTO task SET ?', {
         title,
         description,
         responsible,
         status,
+        client
     });
-    return res.status(200).json({ title, description, responsible, status, 
+    return res.status(200).json({ title, description, responsible, status, client, 
         id: result.insertId })
 }

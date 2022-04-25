@@ -1,13 +1,20 @@
+import { useState } from "react";
 import axios from "axios";
-import { Layout } from "../../components/Layout";
+import { Layout } from "../../../components/Layout";
 import Link from "next/link";
-import { dateFunctions } from '../../utils/';
+import { dateFunctions } from '../../../utils';
 
 const Handler = ({ tasks }) => { 
+
+  const [filtroClient, setFiltroClient] = useState('');
+  const [filtroStatus, setFiltroStatus] = useState('');
   
   return (
     <Layout>
-      {tasks.map((task) => (
+      <input type="text" placeholder="Filter with Name of Client" className="shadow border rounded py-2 px-3 text-gray-800 my-3 w-full " onChange={(e) => setFiltroClient(e.target.value.toLowerCase())} />
+      <input type="text" placeholder="Filter with Status of Task" className="shadow border rounded py-2 px-3 text-gray-800 mb-3 w-full " onChange={(e) => setFiltroStatus(e.target.value.toLowerCase())} />
+
+      {tasks && tasks.filter(task => task.client.toLowerCase().includes(filtroClient) && task.status.toLowerCase().includes(filtroStatus)).map((task) => (
         <div key={task.id} className=" border border-gray-200 shadow-md p-6 m-5 bg-white">
 
           <div className="flex justify-between mb-3">

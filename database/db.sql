@@ -9,6 +9,7 @@ CREATE TABLE task (
     description VARCHAR(950) NOT NULL,
     status VARCHAR(20) NOT NULL,
     responsible VARCHAR(20) NOT NULL,
+    client VARCHAR(30) NOT NULL,
     createdAT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 

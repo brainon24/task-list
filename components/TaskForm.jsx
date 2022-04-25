@@ -1,8 +1,8 @@
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React from 'react'
-import { useState, useEffect } from 'react';
+import { useSnackbar } from 'notistack';
 
 const ProductForm = () => {
 
@@ -19,7 +19,8 @@ const ProductForm = () => {
         description: "",
         responsible: "",
         status: status.pending,
-        createdAt: new Date().now
+        client: "",
+        createdAt: new Date().now,
     });
 
     const handleSubmit = async (e) => {
@@ -28,6 +29,7 @@ const ProductForm = () => {
         const description = e.target.description.value;
         const responsible = e.target.responsible.value;
         const status = e.target.status.value;
+        const client = e.target.client.value;
         const createdAt = new Date().now;
         if(title <= 1 || description <= 1 || responsible <= 1){
             var message;
@@ -36,9 +38,27 @@ const ProductForm = () => {
             if(router.query.id){
                 console.log('update')
                 const res = await axios.put('/api/task/' + router.query.id, task)
+
+                enqueueSnackbar('Task Updated', {
+                    variant: 'success',
+                    autoHideDuration: 1000,
+                    anchorOrigin: {
+                        vertical: 'top',
+                        horizontal: 'right'
+                    }
+                })
             }else{
                 console.log('post')
                 const res = await axios.post('/api/task', task);
+
+                enqueueSnackbar('Task Created', {
+                    variant: 'success',
+                    autoHideDuration: 1000,
+                    anchorOrigin: {
+                        vertical: 'top',
+                        horizontal: 'right'
+                    }
+                })
             }
             router.push('/task/')
         }
@@ -60,6 +80,8 @@ const ProductForm = () => {
         }
     }, [])
 
+    const { enqueueSnackbar } = useSnackbar();
+
   return (
     <div className='bg-gray-200 w-full max-w-xl container mx-auto my-10'>
 
@@ -74,6 +96,7 @@ const ProductForm = () => {
 
         <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-10 pt-6 pb-8 mb-4">
 
+            <input type="text" id="client" name='client' placeholder='Name of Client' className='shadow border rounded py-2 px-3 text-gray-600 mb-3 w-full' onChange={handleChange} value={task.client} />
             <input type="text" id='title' name='title' placeholder='Title of the task' className="shadow border rounded py-2 px-3 text-gray-600 mb-3 w-full " onChange={handleChange} value={task.title}/>
             <textarea name="description" id='description' rows="2" placeholder='Description of the task' className="shadow border rounded pt-2 py-20 px-3 text-gray-600 w-full" onChange={handleChange} value={task.description}></textarea>
             <input type="text" id='responsible' name='responsible' placeholder='Responsible of the task' className="shadow border rounded py-2 px-3 text-gray-600 my-2 w-full " onChange={handleChange} value={task.responsible}/>
